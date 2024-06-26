@@ -5,6 +5,8 @@ import JobListing from "./JobListing";
 const JobListings = () => {
   const [allJobs, setAllJobs] = useState([]);
 
+  const recentJobs = allJobs.slice(0,3)
+
   useEffect(() => {
     if (Array.isArray(jobs.jobs)) {
       setAllJobs(jobs.jobs);
@@ -21,7 +23,7 @@ const JobListings = () => {
             Browse Jobs
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-         { allJobs?.map((job) => ( 
+         { recentJobs?.map((job) => ( 
           <JobListing key={job.id} job={job} />
           ) )} 
             
